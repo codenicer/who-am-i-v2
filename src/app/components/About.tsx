@@ -1,11 +1,7 @@
 'use client'
 
 import styles from '../styles/About.module.scss'
-
-interface Skill {
-  name: string
-  icon?: string
-}
+import { Skill } from '@/types/userProfile'
 
 const skills: Skill[] = [
   { name: 'JavaScript' },
@@ -13,7 +9,25 @@ const skills: Skill[] = [
   { name: 'React' },
   { name: 'Next.js' },
   { name: 'Node.js' },
-  // Add more skills from your old project
+]
+
+const descriptionLines = [
+  {
+    text: "I'm a passionate full-stack developer with experience in",
+    space: true,
+  },
+  {
+    text: 'building scalable web applications and solving complex problems.',
+    space: true,
+  },
+  {
+    text: 'I enjoy working with modern technologies and frameworks.',
+    space: false,
+  },
+  {
+    text: 'My goal is to create efficient and user-friendly applications.',
+    space: false,
+  },
 ]
 
 export default function About() {
@@ -23,11 +37,13 @@ export default function About() {
 
       <div className={styles.content}>
         <div className={styles.description}>
-          <p>
-            {/* Add your about text from the old project */}
-            I&apos;m a passionate full-stack developer with experience in
-            building scalable web applications and solving complex problems.
-          </p>
+          {descriptionLines.map((line, index) => (
+            <p key={index}>
+              {line.text}
+              <br />
+              {line.space && <br />}
+            </p>
+          ))}
         </div>
 
         <div className={styles.skills}>

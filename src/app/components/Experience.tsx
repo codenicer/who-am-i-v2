@@ -60,8 +60,6 @@ const experiences: ExperienceType[] = [
     ],
     technologies: ['React', 'Node.js', 'TypeScript'],
   },
-
-  // Add more experiences from your old project
 ]
 
 export default function Experience() {

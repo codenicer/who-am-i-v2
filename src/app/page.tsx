@@ -34,7 +34,7 @@ export default function Home() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768) // 768px is our mobile breakpoint
+      setIsMobile(window.innerWidth <= 768)
     }
 
     checkMobile() // Check on initial load

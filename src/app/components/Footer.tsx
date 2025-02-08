@@ -2,12 +2,7 @@
 
 import Link from 'next/link'
 import styles from '../styles/Footer.module.scss'
-
-interface SocialLink {
-  name: string
-  url: string
-  icon?: string
-}
+import { SocialLink } from '@/types'
 
 const socialLinks: SocialLink[] = [
   {
