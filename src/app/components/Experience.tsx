@@ -6,6 +6,7 @@ import { useProfileStore } from '@/store/useProfileStore'
 
 export default function Experience() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isActive, setIsActive] = useState(true)
   const { profile } = useProfileStore()
 
   if (!profile) return null
@@ -22,14 +23,20 @@ export default function Experience() {
               className={`${styles.tab} ${
                 index === activeIndex ? styles.active : ''
               }`}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                setActiveIndex(index)
+                setIsActive(false)
+                setTimeout(() => {
+                  setIsActive(true)
+                }, 150)
+              }}
             >
               {exp.company}
             </button>
           ))}
         </div>
 
-        <div className={styles.content}>
+        <div className={`${styles.content} ${isActive ? styles.active : ''}`}>
           <h3>{profile.experiences[activeIndex].position}</h3>
           <p className={styles.duration}>
             {profile.experiences[activeIndex].duration}

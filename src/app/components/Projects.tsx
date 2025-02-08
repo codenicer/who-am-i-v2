@@ -9,6 +9,7 @@ export default function Projects() {
 
   if (!profile) return null
   const firstProject = profile.projects[0]
+
   return (
     <section id="projects" className={styles.projects}>
       <h2 className={styles.title}>Featured Projects</h2>
@@ -20,7 +21,7 @@ export default function Projects() {
                 src={firstProject.image}
                 alt={firstProject.title}
                 width={500}
-                height={300}
+                height={100}
                 className={styles.image}
               />
             </div>

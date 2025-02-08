@@ -159,17 +159,21 @@
   margin: 0 auto;
   padding: 0 $spacing-lg;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-xl;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: $spacing-lg;
 }
 
 .description {
+  grid-column: 1 / span 4;
   font-size: $font-size-lg;
   line-height: 1.6;
   color: $text-light;
 }
 
 .skills {
+ grid-column: 2 / span 3;
+
+  margin-top: $spacing-base;
   h3 {
     font-size: $font-size-xl;
     margin-bottom: $spacing-lg;

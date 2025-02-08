@@ -15,7 +15,6 @@ export default function About() {
         {profile.aboutMe.map((section, index) => (
           <p key={index} className={styles.description}>
             {section.text}
-            {section.space && <br />}
           </p>
         ))}
 
