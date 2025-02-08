@@ -26,7 +26,7 @@ export const useProfileStore = create<ProfileState>((set) => ({
         throw new Error('Failed to fetch profile')
       }
       const data = await response.json()
-      set({ profile: data, loading: false })
+      set({ profile: JSON.parse(data), loading: false })
     } catch (err) {
       set({
         error: err instanceof Error ? err.message : 'An error occurred',

@@ -6,6 +6,7 @@ export interface UserProfile {
   profession: string
   professionAlias: string
   professionDescription: string
+  email: string
 
   aboutMe: {
     text: string
@@ -13,8 +14,8 @@ export interface UserProfile {
   }[]
   skills: Skill[]
   experiences: Experience[]
-  socialLinks: SocialLink[]
   projects: Project[]
+  socialLinks: SocialLink[]
   personalContext: PersonalContext
 }
 

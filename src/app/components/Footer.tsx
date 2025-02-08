@@ -2,31 +2,18 @@
 
 import Link from 'next/link'
 import styles from '../styles/Footer.module.scss'
-import { SocialLink } from '@/types'
-
-const socialLinks: SocialLink[] = [
-  {
-    name: 'GitHub',
-    url: 'https://github.com/yourusername',
-  },
-  {
-    name: 'LinkedIn',
-    url: 'https://linkedin.com/in/yourusername',
-  },
-  {
-    name: 'Twitter',
-    url: 'https://twitter.com/yourusername',
-  },
-]
+import { useProfileStore } from '@/store/useProfileStore'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const { profile } = useProfileStore()
 
+  if (!profile) return null
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
         <div className={styles.socialLinks}>
-          {socialLinks.map((link) => (
+          {profile.socialLinks.map((link) => (
             <a
               key={link.name}
               href={link.url}
@@ -55,7 +42,8 @@ export default function Footer() {
         </nav>
 
         <p className={styles.copyright}>
-          © {currentYear} Your Name. All rights reserved.
+          © {currentYear} {profile.firstName} {profile.lastName}. All rights
+          reserved.
         </p>
       </div>
     </footer>

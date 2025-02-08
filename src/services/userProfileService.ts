@@ -6,8 +6,11 @@ const USER_PROFILE_KEY = 'user:profile'
 export class UserProfileService {
   static async getUserProfile(): Promise<UserProfile | null> {
     try {
-      const data = await redis.get(USER_PROFILE_KEY)
-      return data ? JSON.parse(data) : null
+      const data = await redis.call('JSON.GET', USER_PROFILE_KEY)
+      if (!data) {
+        throw new Error('Profile not found')
+      }
+      return data as UserProfile
     } catch (error) {
       console.error('Error fetching user profile:', error)
       return null

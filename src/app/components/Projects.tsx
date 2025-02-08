@@ -2,63 +2,13 @@
 
 import Image from 'next/image'
 import styles from '../styles/Projects.module.scss'
-import type { Project } from '@/types'
-
-const projects: Project[] = [
-  {
-    title: 'Project Name',
-    description: 'A brief description of the project and its key features.',
-    image: '/project-image.jpg',
-    techStack: ['React', 'Next.js', 'TypeScript'],
-    link: 'https://project-demo.com',
-    github: 'https://github.com/username/project',
-  },
-  {
-    title: 'Project Name',
-    description: 'A brief description of the project and its key features.',
-    image: '/project-image.jpg',
-    techStack: ['React', 'Next.js', 'TypeScript'],
-    link: 'https://project-demo.com',
-    github: 'https://github.com/username/project',
-  },
-  {
-    title: 'Project Name',
-    description: 'A brief description of the project and its key features.',
-    image: '/project-image.jpg',
-    techStack: ['React', 'Next.js', 'TypeScript'],
-    link: 'https://project-demo.com',
-    github: 'https://github.com/username/project',
-  },
-  {
-    title: 'Project Name',
-    description: 'A brief description of the project and its key features.',
-    image: '/project-image.jpg',
-    techStack: ['React', 'Next.js', 'TypeScript'],
-    link: 'https://project-demo.com',
-    github: 'https://github.com/username/project',
-  },
-  {
-    title: 'Project Name',
-    description: 'A brief description of the project and its key features.',
-    image: '/project-image.jpg',
-    techStack: ['React', 'Next.js', 'TypeScript'],
-    link: 'https://project-demo.com',
-    github: 'https://github.com/username/project',
-  },
-  {
-    title: 'Project Name',
-    description: 'A brief description of the project and its key features.',
-    image: '/project-image.jpg',
-    techStack: ['React', 'Next.js', 'TypeScript'],
-    link: 'https://project-demo.com',
-    github: 'https://github.com/username/project',
-  },
-  // Add more projects from your old project
-]
-
-const firstProject = projects[0]
+import { useProfileStore } from '@/store/useProfileStore'
 
 export default function Projects() {
+  const { profile } = useProfileStore()
+
+  if (!profile) return null
+  const firstProject = profile.projects[0]
   return (
     <section id="projects" className={styles.projects}>
       <h2 className={styles.title}>Featured Projects</h2>
@@ -114,7 +64,7 @@ export default function Projects() {
         </article>
       </div>
       <div className={styles.grid}>
-        {projects.map((project) => (
+        {profile.projects.slice(1).map((project) => (
           <article key={project.title} className={styles.project}>
             {project.image && (
               <div className={styles.imageContainer}>

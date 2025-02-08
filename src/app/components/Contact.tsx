@@ -1,8 +1,13 @@
 'use client'
 
 import styles from '../styles/Contact.module.scss'
+import { useProfileStore } from '@/store/useProfileStore'
 
 export default function Contact() {
+  const { profile } = useProfileStore()
+
+  if (!profile) return null
+
   return (
     <section id="contact" className={styles.contact}>
       <h2 className={styles.title}>Contact Me</h2>
@@ -13,10 +18,7 @@ export default function Contact() {
           inquiries or collaborations.
         </p>
 
-        <a
-          href="mailto:your-email@example.com" // Replace with your email
-          className={styles.submitButton}
-        >
+        <a href={`mailto:${profile.email}`} className={styles.submitButton}>
           Email Me
         </a>
       </div>

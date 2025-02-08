@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Suspense } from 'react'
-import { useProfile } from '@/hooks/useProfile'
+import { useProfileStore } from '@/store/useProfileStore'
 
 // Import your components here
 import Loader from './components/Loader'
@@ -15,31 +15,19 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function Home() {
-  const { profile, loading, error } = useProfile()
+  const { profile, loading, error, fetchProfile } = useProfileStore()
   const [isMobile, setIsMobile] = useState(false)
 
-  const SuspenseTrigger = () => {
-    throw new Promise(() => {})
-  }
-
-  // for suspense testing
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const SomeComponent = () => {
-    const [ready, setReady] = useState(false)
-
-    useEffect(() => {
-      setTimeout(() => setReady(true), 1000)
-    }, [])
-
-    return ready ? <div>hello world!</div> : <SuspenseTrigger />
-  }
+  useEffect(() => {
+    fetchProfile()
+  }, [fetchProfile])
 
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768)
     }
 
-    checkMobile() // Check on initial load
+    checkMobile()
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
@@ -51,14 +39,13 @@ export default function Home() {
   return (
     <main>
       <Suspense fallback={<Loader />}>
-        {/* <SomeComponent /> */}
         <Navbar isMobile={isMobile} />
-        <Main profile={profile} />
-        <About profile={profile} />
-        <Experience experiences={profile.experiences} />
-        <Projects projects={profile.projects} />
+        <Main />
+        <About />
+        <Experience />
+        <Projects />
         <Contact />
-        <Footer socialLinks={profile.socialLinks} />
+        <Footer />
       </Suspense>
     </main>
   )

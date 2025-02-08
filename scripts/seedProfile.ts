@@ -1,11 +1,12 @@
-import { redis } from '../lib/redis'
-import { UserProfile } from '../types/userProfile'
+import { redis } from '../src/lib/redis'
+import { UserProfile } from '../src/types/userProfile'
 
 const initialProfile: UserProfile = {
   firstName: 'Ruther',
   lastName: 'Tenido',
   profession: 'Sr. Software Engineer',
   professionAlias: 'Im just a guy who codes.',
+  email: 'ruthertenido@gmail.com',
   professionDescription:
     "I'm a Full Stack Web Developer from the Philippines, skilled in creating dynamic web applications from concept to deployment. I excel in continuous integration and development for superior user experiences and am passionate about using innovative technologies to build robust, scalable solutions for clients.",
   aboutMe: [
