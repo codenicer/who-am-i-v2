@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Suspense } from 'react'
+import { useProfile } from '@/hooks/useProfile'
 
 // Import your components here
 import Loader from './components/Loader'
@@ -14,6 +15,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function Home() {
+  const { profile, loading, error } = useProfile()
   const [isMobile, setIsMobile] = useState(false)
 
   const SuspenseTrigger = () => {
@@ -42,17 +44,21 @@ export default function Home() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  if (loading) return <Loader />
+  if (error) return <div>Error: {error}</div>
+  if (!profile) return <div>No profile data found</div>
+
   return (
     <main>
       <Suspense fallback={<Loader />}>
         {/* <SomeComponent /> */}
         <Navbar isMobile={isMobile} />
-        <Main />
-        <About />
-        <Experience />
-        <Projects />
+        <Main profile={profile} />
+        <About profile={profile} />
+        <Experience experiences={profile.experiences} />
+        <Projects projects={profile.projects} />
         <Contact />
-        <Footer />
+        <Footer socialLinks={profile.socialLinks} />
       </Suspense>
     </main>
   )

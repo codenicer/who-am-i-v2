@@ -1,4 +1,4 @@
-import { Experience, Project, SocialLink } from '.'
+import { Experience, PersonalContext, Project, SocialLink } from '.'
 
 export interface UserProfile {
   firstName: string
@@ -8,13 +8,14 @@ export interface UserProfile {
   professionDescription: string
 
   aboutMe: {
-    main: string
-    secondary: string
-  }
+    text: string
+    space: boolean
+  }[]
   skills: Skill[]
   experiences: Experience[]
   socialLinks: SocialLink[]
   projects: Project[]
+  personalContext: PersonalContext
 }
 
 export interface Skill {
