@@ -133,11 +133,32 @@
   }
 }
 
-
-
 // Show mobile menu button on mobile
 @media (max-width: $breakpoint-md) {
   .menuButton {
     display: block;
+  }
+}
+
+.downloadButton {
+  padding: $spacing-base 0.5rem;
+  background-color: $primary;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: $font-size-base;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: var(--primary-dark);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($primary, 0.2);
   }
 } 

@@ -62,6 +62,13 @@ export default function Navbar({ isMobile = false }: NavbarProps) {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="/Tenido-Ruther-V.-Resume.pdf"
+              className={styles.downloadButton}
+              download
+            >
+              Resume
+            </a>
             <ThemeToggle />
           </div>
         ) : (
@@ -91,6 +98,13 @@ export default function Navbar({ isMobile = false }: NavbarProps) {
                   {link.label}
                 </Link>
               ))}
+              <a
+                href="/Tenido-Ruther-V.-Resume.pdf"
+                className={styles.downloadButton}
+                download
+              >
+                Resume
+              </a>
               <ThemeToggle />
             </div>
           </>
