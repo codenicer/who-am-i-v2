@@ -6,7 +6,6 @@ import styles from '../styles/About.module.scss'
 export default function About() {
   const { profile } = useProfileStore()
   if (!profile) return null
-  console.log('Profile here', Object.keys(profile))
 
   return (
     <section id="about" className={styles.about}>
