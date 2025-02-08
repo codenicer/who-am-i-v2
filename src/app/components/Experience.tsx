@@ -47,11 +47,13 @@ export default function Experience() {
             ))}
           </ul>
           <div className={styles.technologies}>
-            {profile.experiences[activeIndex].technologies.map((tech) => (
-              <span key={tech} className={styles.tech}>
-                {tech}
-              </span>
-            ))}
+            {profile.experiences[activeIndex].technologies.map(
+              (tech, index) => (
+                <span key={index} className={styles.tech}>
+                  {tech}
+                </span>
+              )
+            )}
           </div>
         </div>
       </div>

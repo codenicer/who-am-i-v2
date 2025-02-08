@@ -10,13 +10,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@my-chatbot/core": "0.1.5",
+    "@my-chatbot/ui": "1.0.1",
     "@types/cors": "^2.8.17",
     "@types/ioredis": "^5.0.0",
+    "@types/nodemailer": "^6.4.14",
+    "@upstash/redis": "^1.28.4",
     "cors": "^2.8.5",
+    "google-auth-library": "^9.15.1",
+    "googleapis": "^133.0.0",
     "ioredis": "^5.5.0",
-    "next": "14.2.23",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "^15.1.6",
+    "nodemailer": "^6.9.12",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@types/node": "^20.17.17",

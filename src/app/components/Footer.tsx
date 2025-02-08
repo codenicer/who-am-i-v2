@@ -13,9 +13,9 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.content}>
         <div className={styles.socialLinks}>
-          {profile.socialLinks.map((link) => (
+          {profile.socialLinks.map((link, index) => (
             <a
-              key={link.name}
+              key={index}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"

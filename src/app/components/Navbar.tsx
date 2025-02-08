@@ -53,12 +53,8 @@ export default function Navbar({ isMobile = false }: NavbarProps) {
 
         {!isMobile ? (
           <div className={styles.navLinks}>
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={styles.navLink}
-              >
+            {navLinks.map((link, index) => (
+              <Link key={index} href={link.href} className={styles.navLink}>
                 {link.label}
               </Link>
             ))}
@@ -88,9 +84,9 @@ export default function Navbar({ isMobile = false }: NavbarProps) {
             <div
               className={`${styles.mobileNav} ${isMenuOpen ? styles.open : ''}`}
             >
-              {navLinks.map((link) => (
+              {navLinks.map((link, index) => (
                 <Link
-                  key={link.label}
+                  key={index}
                   href={link.href}
                   className={styles.mobileNavLink}
                   onClick={toggleMenu}

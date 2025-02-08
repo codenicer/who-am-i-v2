@@ -21,8 +21,8 @@ export default function About() {
         <div className={styles.skills}>
           <h3>Technologies I work with:</h3>
           <ul className={styles.skillsList}>
-            {profile.skills.map((skill) => (
-              <li key={skill.name} className={styles.skillItem}>
+            {profile.skills.map((skill, index) => (
+              <li key={index} className={styles.skillItem}>
                 {skill.name}
               </li>
             ))}

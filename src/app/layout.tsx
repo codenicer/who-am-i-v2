@@ -1,10 +1,10 @@
 import './globals.css'
+import '@my-chatbot/ui/src/styles.css'
 import { Inter } from 'next/font/google'
 import { Metadata } from 'next'
 import { LoadingProvider } from './context/LoadingContext'
 import { ThemeProvider } from './context/ThemeContext'
-import { Icons, IconURL } from 'next/dist/lib/metadata/types/metadata-types'
-import { Icon } from 'next/dist/lib/metadata/types/metadata-types'
+import { Icons } from 'next/dist/lib/metadata/types/metadata-types'
 
 const inter = Inter({ subsets: ['latin'] })
 

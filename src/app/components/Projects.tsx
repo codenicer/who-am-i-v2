@@ -32,8 +32,8 @@ export default function Projects() {
             <p className={styles.description}>{firstProject.description}</p>
 
             <div className={styles.techStack}>
-              {firstProject.techStack.map((tech) => (
-                <span key={tech} className={styles.tech}>
+              {firstProject.techStack.map((tech, index) => (
+                <span key={index} className={styles.tech}>
                   {tech}
                 </span>
               ))}
@@ -65,8 +65,8 @@ export default function Projects() {
         </article>
       </div>
       <div className={styles.grid}>
-        {profile.projects.slice(1).map((project) => (
-          <article key={project.title} className={styles.project}>
+        {profile.projects.slice(1).map((project, index) => (
+          <article key={index} className={styles.project}>
             {project.image && (
               <div className={styles.imageContainer}>
                 <Image
@@ -84,8 +84,8 @@ export default function Projects() {
               <p className={styles.description}>{project.description}</p>
 
               <div className={styles.techStack}>
-                {project.techStack.map((tech) => (
-                  <span key={tech} className={styles.tech}>
+                {project.techStack.map((tech, index) => (
+                  <span key={index} className={styles.tech}>
                     {tech}
                   </span>
                 ))}
