@@ -1,0 +1,141 @@
+@import '_variables.scss';
+
+.contact_card {
+  overflow: hidden;
+  height: 60vh;
+  width: 100%;
+  // background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .contact_info {
+    overflow: hidden;
+    width: 80%;
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .contact_sub_title {
+      @extend %reset-padding-margin;
+      color: $color-less-white;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1rem;
+      &::before {
+        content: '>>';
+        padding-right: 0.4rem;
+        color: $color-less-white;
+      }
+    }
+
+    .contat_title {
+      font-size: clamp(35px, 3vw, 45px);
+      color: $color-white;
+    }
+
+    .contact_message {
+      color: $color-white-sub;
+      margin-bottom: 3rem;
+      line-height: 1.4rem;
+    }
+
+    .contact_btn {
+      @extend %reset-padding-margin;
+      button {
+        height: 3.5rem;
+        width: 9rem;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.contact {
+  padding: $spacing-xl 0;
+}
+
+.title {
+  text-align: center;
+  font-size: $font-size-2xl;
+  margin-bottom: $spacing-xl;
+  color: $text;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  text-align: center;
+  font-size: $font-size-lg;
+  line-height: 1.6;
+  color: $text-light;
+  margin-bottom: $spacing-xl;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-base;
+  
+  label {
+    font-size: $font-size-base;
+    color: $text;
+  }
+  
+  input,
+  textarea {
+    padding: $spacing-base;
+    border: 1px solid $border;
+    border-radius: 4px;
+    font-size: $font-size-base;
+    transition: $transition-base;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 2px rgba($primary, 0.2);
+    }
+  }
+  
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+}
+
+.submitButton {
+  padding: $spacing-base $spacing-lg;
+  background-color: $primary;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: $font-size-base;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  transition: $transition-base;
+  
+  &:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($primary, 0.2);
+  }
+}

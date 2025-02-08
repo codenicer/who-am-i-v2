@@ -1,0 +1,20 @@
+$color-darkest: #020b22;
+$color-darker: #10295f;
+$color-less-white: #4dd2ff;
+$color-white-sub: #d3985dd5;
+$color-white: #f8dbbe;
+
+@font-face {
+  font-family: 'nav-font';
+  src: url('../public//MavenPro-Regular.ttf');
+}
+
+%reset-padding-margin {
+  padding: 0;
+  margin: 0;
+}
+
+%reset-position {
+  top: 0;
+  left: 0;
+}

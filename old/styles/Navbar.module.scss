@@ -1,0 +1,96 @@
+@import '_variables.scss';
+
+.nav {
+  @extend %reset-position;
+  opacity: 0;
+  display: none;
+  position: fixed;
+  z-index: 20;
+  height: 6rem;
+  width: 100vw;
+  background-color: $color-darkest;
+  align-items: center;
+
+  svg {
+    height: 2rem;
+    margin-left: 2rem;
+    .paths {
+      stroke: $color-white;
+      fill: $color-less-white;
+      white-space: pre;
+    }
+  }
+
+  .nav_flex {
+    grid-column: 2 / span 2;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2rem;
+    align-items: center;
+  }
+
+  .nav_btn_resume {
+    margin-left: 2rem;
+  }
+
+  .nav_link_list li {
+    margin: 0 0.8rem;
+  }
+
+  @media (min-width: 48rem) {
+    & {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-rows: 1fr;
+      .logo_container {
+        grid-area: 1 / 1 / span 1 / span 1;
+      }
+
+      .nav_link_container {
+        grid-area: 1 / 2 / span 1 / span 1;
+      }
+    }
+  }
+
+  @media (min-width: 55rem) {
+    & {
+      // display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.nav_link_list {
+  @extend %reset-padding-margin;
+  list-style: none;
+  display: flex;
+  color: $color-white;
+  justify-content: space-around;
+
+  li {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+
+    &::before {
+      content: '>>';
+      padding-right: 0.4rem;
+      font-size: 0.9rem;
+      margin-top: 0;
+      color: $color-less-white;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-less-white;
+      cursor: pointer;
+      text-shadow: 1px 1px 0.5px rgba(80, 80, 83, 0.63);
+    }
+  }
+}
+
+.logo_container a {
+  color: $color-less-white;
+  font-weight: bolder;
+  font-size: 1.3rem;
+}

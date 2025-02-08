@@ -1,0 +1,210 @@
+@import '_variables.scss';
+
+.about_card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  margin-bottom: 20vh;
+  .about_card_content {
+    width: 80%;
+    display: flex;
+
+    max-width: 900px;
+    flex-direction: column;
+    justify-content: center;
+    .heading_cont_about {
+      grid-area: 1 / span 2;
+    }
+
+    .about_info {
+      grid-column: 1 / span 2;
+    }
+
+    .about_subject {
+      line-height: 1.5rem;
+    }
+
+    .about_subject,
+    .tech_list {
+      color: $color-white-sub;
+    }
+
+    .tech_list {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: auto; // width: 18rem;
+      @extend %reset-padding-margin;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.85rem;
+      list-style: square inside url('/arrow.svg');
+
+      li {
+        width: 15rem;
+        height: 1.3rem;
+      }
+    }
+
+    .img_cont {
+      display: flex;
+      justify-content: center;
+      transition: all 0.4s ease;
+      .image_box {
+        margin-top: 4rem;
+        border: 2px solid $color-less-white;
+        height: 265px;
+        max-width: 268px;
+        max-height: 286px;
+        border-radius: 0.5rem;
+        transition: all 0.4s ease;
+        padding: 1rem;
+        display: flex;
+      }
+
+      img {
+        transition: all 0.4s ease;
+        filter: hue-rotate(188deg) saturate(0.4);
+      }
+
+      &:hover {
+        transform: translate(-1.5rem, -1.5rem);
+
+        img {
+          transform: translate(1.5rem, 1.5rem) scale(1.1);
+          filter: none;
+        }
+      }
+    }
+
+    @media (min-width: 48rem) {
+      margin-bottom: 0;
+      .tech_list {
+        height: 16rem;
+      }
+
+      .about_info {
+        // width: 100%;
+        display: grid;
+
+        grid-template-columns: 6fr 4fr;
+        grid-template-areas:
+          'title pic'
+          'firstp pic'
+          'secondp secondp'
+          'techinfo techinfo'
+          'list1 list1';
+
+        .about_subject {
+          margin: 0.6rem 0;
+        }
+
+        .about_subject_title {
+          grid-area: title;
+          align-self: center;
+        }
+
+        .about_subject_fp {
+          grid-area: firstp;
+        }
+        .about_subject_sp {
+          grid-area: secondp;
+        }
+
+        .about_subject_techabout {
+          grid-area: techinfo;
+        }
+
+        .tech_list {
+          grid-area: list1;
+        }
+
+        .img_cont {
+          grid-area: pic;
+          justify-self: flex-end;
+          .image_box {
+            margin-top: 0;
+            height: 30vw;
+          }
+        }
+
+        @media (min-width: 56.25rem) {
+          .image_cont_center {
+            grid-area: pic;
+            justify-self: center;
+            align-self: center;
+          }
+        }
+      }
+    }
+  }
+
+  // @media (min-width: 83.13rem) {
+  //   justify-self: center;
+  //   align-self: center;
+  //   grid-template-columns: 7fr 3fr;
+  //   max-width: 1500px;
+  // }
+}
+
+.about {
+  padding: $spacing-xl 0;
+  background-color: rgba($secondary, 0.05);
+}
+
+.title {
+  text-align: center;
+  font-size: $font-size-2xl;
+  margin-bottom: $spacing-xl;
+  color: $text;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+}
+
+.description {
+  font-size: $font-size-lg;
+  line-height: 1.6;
+  color: $text-light;
+}
+
+.skills {
+  h3 {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-lg;
+    color: $text;
+  }
+}
+
+.skillsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: $spacing-base;
+}
+
+.skillItem {
+  padding: $spacing-base;
+  background-color: $background;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: $transition-base;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}

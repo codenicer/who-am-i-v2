@@ -1,0 +1,43 @@
+@import '_variables.scss';
+
+.links_container {
+  z-index: 2;
+  height: 22rem;
+  display: none;
+  visibility: hidden;
+  right: 0;
+  // display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  bottom: 0;
+  position: fixed;
+  width: 3rem;
+  left: 2rem;
+
+  // border: 1px solid red;
+  @extend %reset-padding-margin;
+
+  .links_list {
+    @extend %reset-padding-margin;
+    list-style: none;
+  }
+
+  .links_list li {
+    margin: 2rem 0;
+  }
+
+  .links_horizontal_line {
+    border-left: 1px solid #fcd9b76b;
+    height: 7em;
+  }
+
+  @media (min-width: 48rem) {
+    display: flex;
+  }
+}
+
+.github_link svg {
+  @extend %reset-padding-margin;
+  height: 1.1rem;
+}

@@ -1,0 +1,63 @@
+@import '_variables.scss';
+
+.loader {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // background: $color-darkest;
+
+  p {
+    @extend %reset-padding-margin;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    color: $color-less-white;
+  }
+
+  svg {
+    height: 5rem;
+
+    @media (min-width: 40rem) {
+      height: 9rem;
+    }
+  }
+}
+
+.paths {
+  stroke: $color-less-white;
+  fill: $color-less-white;
+  stroke-dasharray: 1800;
+  opacity: 1;
+  animation: animate 3s cubic-bezier(1, 0.23, 1, 0.1);
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0.1;
+    fill: none;
+    stroke-dashoffset: 1800;
+  }
+
+  5% {
+    opacity: 0.2;
+    fill: none;
+    stroke-dashoffset: 1800;
+  }
+
+  30% {
+    fill: none;
+    stroke-dashoffset: 1800;
+  }
+
+  100% {
+    opacity: 10;
+    fill: $color-less-white;
+    stroke-dashoffset: 0;
+  }
+}

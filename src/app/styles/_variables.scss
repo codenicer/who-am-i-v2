@@ -1,0 +1,72 @@
+
+
+// Legacy colors (for reference)
+$color-darkest: hsl(224, 89%, 7%);
+$color-darker: hsl(220, 71%, 22%);
+$color-less-white: hsl(195, 100%, 65%);
+$color-white-sub: hsl(31, 61%, 60%);
+$color-white: hsl(31, 85%, 86%);
+
+// Dynamic theme variables
+$primary: var(--primary);
+$secondary: var(--secondary);
+$background: var(--background);
+$text: var(--text);
+$text-light: var(--text-light);
+$border: var(--border);
+
+// Typography
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-2xl: 32px;
+
+// Spacing
+$spacing-base: 1rem;
+$spacing-lg: 2rem;
+$spacing-xl: 4rem;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Transitions
+$transition-base: all 0.3s ease;
+
+// Mixins
+@mixin mobile {
+  @media (max-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-md}) and (max-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+// Legacy styles
+@font-face {
+  font-family: 'nav-font';
+  src: url('../fonts/MavenPro-Regular.ttf');
+}
+
+%reset-padding-margin {
+  padding: 0;
+  margin: 0;
+}
+
+%reset-position {
+  top: 0;
+  left: 0;
+}
+
