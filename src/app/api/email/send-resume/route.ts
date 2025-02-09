@@ -19,8 +19,16 @@ export async function POST(request: Request) {
 
     console.log('body', body)
     const result = await handler.POST({ body })
-    console.log('email result', result)
-    return NextResponse.json(result.json, { status: result.status || 500 })
+    if (result.status === 200 && result.json?.status === 200) {
+      console.log('email result', result)
+      return NextResponse.json(result.json, { status: result.status || 500 })
+    } else {
+      console.error('here Email route error:')
+      return NextResponse.json(
+        { error: 'Failed to send email' },
+        { status: 500 }
+      )
+    }
   } catch (error) {
     console.error('Email route error:', error)
     return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
