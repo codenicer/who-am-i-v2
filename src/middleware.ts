@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const allowedOrigins = [process.env.PRODUCTION_URL]
+const allowedOrigins = [
+  process.env.PRODUCTION_URL_MAIN,
+  process.env.PRODUCTION_URL_SUB,
+]
 
 export function middleware(request: NextRequest) {
   const origin = request.headers.get('origin')
