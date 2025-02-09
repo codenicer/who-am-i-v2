@@ -10,8 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@my-chatbot/core": "0.1.5",
-    "@my-chatbot/ui": "1.0.1",
+    "@my-chatbot/core": "0.1.6",
+    "@my-chatbot/ui": "1.0.3",
     "@types/cors": "^2.8.17",
     "@types/ioredis": "^5.0.0",
     "@types/nodemailer": "^6.4.14",

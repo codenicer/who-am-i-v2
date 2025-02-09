@@ -23,13 +23,20 @@ const redis = new Redis({
 })
 
 export default function Home() {
-  const { profile, loading, error, fetchProfile } = useProfileStore()
-  const [clientIp, setClientIp] = useState<string>('unknown')
+  const { profile, loading, error, fetchProfile, ip, fetchIp } =
+    useProfileStore()
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    fetchProfile()
-  }, [fetchProfile])
+    const init = async () => {
+      try {
+        await Promise.all([fetchProfile(), fetchIp()])
+      } catch (error) {
+        console.error('Initialization error:', error)
+      }
+    }
+    init()
+  }, [fetchProfile, fetchIp])
 
   useEffect(() => {
     const checkMobile = () => {
@@ -41,21 +48,7 @@ export default function Home() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  useEffect(() => {
-    // Fetch client IP on component mount
-    fetch('/api/client-ip')
-      .then((res) => res.json())
-      .then((data) => setClientIp(data.ip))
-      .catch(console.error)
-  }, [])
-
-  // Configure rate limit with client IP
-  const rateLimit: RateLimitParams = {
-    identifier: `chat:${clientIp}`, // Use IP in identifier
-    limit: 20,
-    window: 3600,
-    redis,
-  }
+  console.log('ip', ip)
 
   if (loading) return <Loader />
   if (error) return <div>Error: {error}</div>
@@ -72,10 +65,18 @@ export default function Home() {
     )
   }
   if (!profile) return <div>No profile data found</div>
+  if (ip === 'unknown') return <div>No client IP found</div>
+  // Configure rate limit with client IP
+  const rateLimit: RateLimitParams = {
+    identifier: `chat:${ip}`, // Use IP in identifier
+    limit: 20,
+    window: 3600,
+    redis,
+  }
 
   return (
     <RootProvider
-      key={`chat-provider-${clientIp}`}
+      key={`chat-provider-${ip}`}
       personalContext={profile.personalContext}
       aiConfig={{
         provider: 'gemini',
