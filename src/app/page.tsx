@@ -30,7 +30,8 @@ export default function Home() {
   useEffect(() => {
     const init = async () => {
       try {
-        await Promise.all([fetchProfile(), fetchIp()])
+        await fetchIp()
+        await fetchProfile()
       } catch (error) {
         console.error('Initialization error:', error)
       }

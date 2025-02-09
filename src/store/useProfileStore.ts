@@ -44,6 +44,7 @@ export const useProfileStore = create<ProfileState>((set) => ({
   },
   fetchIp: async () => {
     try {
+      set({ loading: true, error: null })
       const response = await fetch('/api/client-ip', {
         cache: 'no-store',
         headers: {

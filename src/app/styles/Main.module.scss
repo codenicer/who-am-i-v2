@@ -55,6 +55,7 @@
 
 @media (max-width: $breakpoint-lg) {
   .main {
+    margin-top: $spacing-xl;
     flex-direction: column;
     text-align: center;
     gap: $spacing-xl;
