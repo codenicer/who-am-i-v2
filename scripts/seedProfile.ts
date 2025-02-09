@@ -325,8 +325,8 @@ const initialProfile: UserProfile = {
       resumeUrl: 'https://codenicer.dev/Tenido-Ruther-V.-Resume.pdf',
     },
     preferences: {
-      minSalary: 900000,
-      maxSalary: 2500000,
+      minSalary: 1,
+      maxSalary: 1,
       location: 'Manila, Philippines',
       remoteWork: true,
     },
@@ -336,7 +336,7 @@ const initialProfile: UserProfile = {
 async function seedProfile() {
   try {
     await redis.set('user:profile', JSON.stringify(initialProfile))
-    console.log('Profile seeded successfully')
+
     process.exit(0)
   } catch (error) {
     console.error('Error seeding profile:', error)
