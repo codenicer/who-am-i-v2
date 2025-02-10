@@ -6,7 +6,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@my-chatbot/ui/**/*.{js,ts,jsx,tsx}', // Add this line
+    './node_modules/@my-chatbot/ui/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -16,7 +16,7 @@ const config: Config = {
       },
     },
   },
-  presets: [sharedConfig], // Add this line to inherit UI package's Tailwind config
+  presets: [sharedConfig],
 } satisfies Config
 
 export default config
