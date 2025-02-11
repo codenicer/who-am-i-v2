@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 import { LoadingProvider } from './context/LoadingContext'
 import { ThemeProvider } from './context/ThemeContext'
 import { Icons } from 'next/dist/lib/metadata/types/metadata-types'
+import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -95,6 +96,7 @@ export default function RootLayout({
         <ThemeProvider>
           <LoadingProvider>{children}</LoadingProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )

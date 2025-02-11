@@ -23,21 +23,19 @@ const redis = new Redis({
 })
 
 export default function Home() {
-  const { profile, loading, error, fetchProfile, ip, fetchIp } =
-    useProfileStore()
+  const { profile, loading, error, initalizeProfile, ip } = useProfileStore()
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const init = async () => {
       try {
-        await fetchIp()
-        await fetchProfile()
+        await initalizeProfile()
       } catch (error) {
         console.error('Initialization error:', error)
       }
     }
     init()
-  }, [fetchProfile, fetchIp])
+  }, [initalizeProfile])
 
   useEffect(() => {
     const checkMobile = () => {

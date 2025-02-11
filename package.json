@@ -16,15 +16,16 @@
     "@types/ioredis": "^5.0.0",
     "@types/nodemailer": "^6.4.14",
     "@upstash/redis": "^1.28.4",
+    "@vercel/analytics": "^1.5.0",
     "cors": "^2.8.5",
     "google-auth-library": "^9.15.1",
     "googleapis": "^133.0.0",
     "ioredis": "^5.5.0",
-    "nodemailer": "^6.9.12",
-    "zustand": "^5.0.3",
     "next": "14.2.23",
+    "nodemailer": "^6.9.12",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@types/node": "^20.17.17",
