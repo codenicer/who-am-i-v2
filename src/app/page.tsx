@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { Suspense } from 'react'
 import { useProfileStore } from '@/store/useProfileStore'
 
-// Import your components here
 import Loader from './components/Loader'
 import Navbar from './components/Navbar'
 import Main from './components/Main'
@@ -23,15 +22,18 @@ const redis = new Redis({
 })
 
 export default function Home() {
-  const { profile, loading, error, initalizeProfile, ip } = useProfileStore()
+  const { profile, error, initalizeProfile, ip } = useProfileStore()
   const [isMobile, setIsMobile] = useState(false)
+  const [initialLoadComplete, setInitialLoadComplete] = useState(false)
 
   useEffect(() => {
     const init = async () => {
       try {
         await initalizeProfile()
+        setInitialLoadComplete(true)
       } catch (error) {
         console.error('Initialization error:', error)
+        setInitialLoadComplete(true)
       }
     }
     init()
@@ -49,7 +51,8 @@ export default function Home() {
 
   console.log('ip', ip)
 
-  if (loading) return <Loader />
+  // Show loader only during initial load
+  if (!initialLoadComplete) return <Loader />
   if (error) return <div>Error: {error}</div>
   if (
     !process.env.NEXT_PUBLIC_OPENAI_API_KEY ||

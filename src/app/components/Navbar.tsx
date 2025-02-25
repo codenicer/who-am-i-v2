@@ -35,6 +35,14 @@ export default function Navbar({ isMobile = false }: NavbarProps) {
     document.body.style.overflow = !isMenuOpen ? 'hidden' : ''
   }
 
+  useEffect(() => {
+    console.log(isMobile)
+    if (!isMobile) {
+      setIsMenuOpen(false)
+      document.body.style.overflow = 'auto'
+    }
+  }, [isMobile])
+
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.navContent}>
