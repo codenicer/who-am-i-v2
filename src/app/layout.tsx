@@ -10,16 +10,24 @@ import { Analytics } from '@vercel/analytics/react'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://codenicer.cv'),
   title: 'Code Nicer | Web Developer',
   description:
     "Code nicer, a full stack web developer. Do you have an idea? Let's build your idea now, my inbox is always open.",
   keywords:
     'nicer, code nicer, web developer, full stack, portfolio, coding, programming, JavaScript, React, Next.js',
   openGraph: {
-    images: ['/nicer-og-image.png'] as string[],
+    images: ['/nicer-og-image.png'],
     title: 'Code Nicer | Full Stack Web Developer',
     description:
       "Code nicer, a full stack web developer. Do you have an idea? Let's build your idea now, my inbox is always open.",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Code Nicer | Full Stack Web Developer',
+    description:
+      "Code nicer, a full stack web developer. Do you have an idea? Let's build your idea now, my inbox is always open.",
+    images: ['/nicer-og-image.png'],
   },
   icons: {
     icon: '/favicon-32x32.png',
