@@ -180,7 +180,7 @@ const initialProfile: UserProfile = {
         'Turborepo',
         'HTML & (S)CSS',
       ],
-      link: 'https://codenicer.dev',
+      link: 'https://codenicer.cv',
       github: 'https://github.com/codenicer/my-chatbot',
       image: '/images/projects/my-chatbot.png',
     },
@@ -196,7 +196,7 @@ const initialProfile: UserProfile = {
         'Redis',
         'HTML & (S)CSS',
       ],
-      link: 'https://codenicer.dev',
+      link: 'https://codenicer.cv',
       github: 'https://github.com/codenicer/who-am-i-v2',
     },
     {
@@ -322,7 +322,7 @@ const initialProfile: UserProfile = {
         country: 'Philippines',
         openToRelocation: true,
       },
-      resumeUrl: 'https://codenicer.dev/Tenido-Ruther-V.-Resume.pdf',
+      resumeUrl: 'https://codenicer.cv/Tenido-Ruther-V.-Resume.pdf',
     },
     preferences: {
       minSalary: 1,

@@ -79,13 +79,13 @@ export default function RootLayout({
               '@type': 'Person',
               name: 'Code Nicer',
               jobTitle: 'Web Developer',
-              url: 'https://codenicer.dev',
+              url: 'https://codenicer.cv',
               sameAs: [
                 'https://www.facebook.com/code.Nicer',
                 'https://github.com/codenicer',
                 'https://www.linkedin.com/in/code-nicer',
               ],
-              image: 'https://codenicer.dev/me.jpeg',
+              image: 'https://codenicer.cv/me.jpeg',
               description:
                 "Code nicer, a full stack web developer. Do you have an idea? Let's build your idea now, my inbox is always open.",
             }),
