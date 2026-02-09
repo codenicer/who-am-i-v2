@@ -83,7 +83,7 @@ export default function Home() {
       aiConfig={{
         provider: 'gemini',
         apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY!,
-        model: 'gemini-2.0-flash-lite-preview-02-05',
+        model: 'gemini-flash-lite-latest',
       }}
       rateLimit={rateLimit}
     >
